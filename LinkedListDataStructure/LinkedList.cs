@@ -74,5 +74,20 @@ namespace LinkedListDataStructure
                 temp = temp.next;
             }
         }
+        /// <summary>
+        /// Data is inserted at left side of head
+        /// </summary>
+        /// <param name="data"></param>
+        public void DataAtFront(int data)
+        {
+            //object is created for adding data in node class
+            Node node = new Node(data);
+            //head address is added in newly created node, hence the initial head is coming at last, and data is inserted at left
+            node.next = head;
+            //the node in which data is added, is assigned as a new head, so whenever new data comes, it is inserted in left of old node.
+            head = node;
+            Console.WriteLine("Element inserted in LinkedList:\t{0}", node.data);
+
+        }
     }
 }

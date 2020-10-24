@@ -10,9 +10,14 @@ namespace LinkedListDataStructure
             //Creating object of linked list
             LinkedList linkedList = new LinkedList();
             //adding data
-            linkedList.DataAtEnd(56);
-            linkedList.DataAtEnd(30);
-            linkedList.DataAtEnd(70);
+            //linkedList.DataAtEnd(56);
+            //linkedList.DataAtEnd(30);
+            //linkedList.DataAtEnd(70);
+            linkedList.DisplayLinkedList();
+            //adding data in front of linkedlist
+            linkedList.DataAtFront(70);
+            linkedList.DataAtFront(30);
+            linkedList.DataAtFront(56);
             //displaying linkedlist
             linkedList.DisplayLinkedList();
 
