@@ -164,5 +164,23 @@ namespace LinkedListDataStructure
             head = temp.next;
 
         }
+        /// <summary>
+        /// deleting last element from the list
+        /// </summary>
+        public void DeleteLastElement()
+        {
+            Node temp = head;
+            //finds the positon of the 2nd last element, as after that, next and next will give address as null
+            while(temp.next.next !=null)
+            {
+                temp = temp.next;
+            }
+            //last element node helps in printing last element
+            Node lastelement = temp.next;
+            Console.WriteLine("Deleting last element:\t{0}", lastelement.data);
+            //address in the temp node(2nd last element) is set to null, hence last node is abandoned.
+            temp.next = null; 
+
+        }
     }
 }
