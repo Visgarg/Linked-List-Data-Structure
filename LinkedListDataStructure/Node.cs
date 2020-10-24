@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LinkedListDataStructure
 {
-    class Node
+    public class Node
     {
         //data is entered
         public int data;

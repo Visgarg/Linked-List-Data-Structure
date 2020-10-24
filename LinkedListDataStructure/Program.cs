@@ -10,7 +10,7 @@ namespace LinkedListDataStructure
             //Creating object of linked list
             LinkedList linkedList = new LinkedList();
             //sortedLinkedList
-            Console.WriteLine("Sorted Linked List");
+           /* Console.WriteLine("Sorted Linked List");
             linkedList.SortedLinkedList(56);
             linkedList.SortedLinkedList(30);
             linkedList.SortedLinkedList(70);
@@ -18,15 +18,15 @@ namespace LinkedListDataStructure
             linkedList.SortedLinkedList(100);
             linkedList.SortedLinkedList(34);
             linkedList.SortedLinkedList(44);
-             linkedList.DisplayLinkedList();
+             linkedList.DisplayLinkedList();*/
             Console.WriteLine("****************************************************");
-            /*//adding data in front of linkedlist
+            //adding data in front of linkedlist
             Console.WriteLine("LinkedList");
-            linkedList.DataAtFrontInLinkedList(70);
-            linkedList.DataAtFrontInLinkedList(30);
             linkedList.DataAtFrontInLinkedList(56);
-            displaying linkedlist
-            linkedList.DisplayLinkedList();*/
+            linkedList.DataAtFrontInLinkedList(30);
+            linkedList.DataAtFrontInLinkedList(70);
+            //displaying linkedlist
+            linkedList.DisplayLinkedList();
             Console.WriteLine("****************************************************");
             //inserting element in linkedlist specifying position and data
             /* linkedList.InsertingDataInLinkedList(4, 45);
@@ -47,8 +47,8 @@ namespace LinkedListDataStructure
             else
                 Console.WriteLine($"{searchdata} is present in the list at {index} position.");
             //inserting element in list using data of previous element
-          /*  linkedList.InsertingElementWithData(16, 45);
-            linkedList.DisplayLinkedList();*/
+            linkedList.InsertingElementWithDataInLinkedList(16, 70);
+            linkedList.DisplayLinkedList();
             //deleting specific element from the list
             linkedList.DeleteSpecificElementFromList(30);
             linkedList.DisplayLinkedList();
