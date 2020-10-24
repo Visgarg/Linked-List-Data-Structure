@@ -12,10 +12,10 @@ namespace LinkedListDataStructure
         //head is filled with pointer of first value, when head is null.
         public Node head;
         /// <summary>
-        /// Creating a linkedlist, where data is inserted at the right side of head.
+        /// sorted linked list
         /// </summary>
-        /// <param name="data"> data to be added in linked list</param>
-        public void DataAtEnd(int data)
+        /// <param name="data"> data to be added in sorted linked list</param>
+        public void SortedLinkedList(int data)
         {
             //Creating a object of node and adding data in node
             Node node = new Node(data);
@@ -28,33 +28,65 @@ namespace LinkedListDataStructure
             {
                 head = node;
             }
-            //when heads point to first element, node is find out, whose address is empty
-            //so that, address of new node can be filled in next of last ode
             else
             {
-                //get last node method is called to find out last node
-                Node lastNode = GetLastNode(temp);
-                lastNode.next = node;
+                //defining counter of elements
+                int index = 0;
+                //checking the current elements for position in linkedlist according to sorting
+                while(temp!=null)
+                {
+                    //counter increases to find out position until if condition find out list value which is greater than data
+                    index += 1;
+                   if(data<temp.data)
+                    {
+                        //defining data to iterate over again
+                        Node tempNode = head;
+                        Node previous= null;
+                        //if index is 1, means there was only 1 element with value greater than data
+                        if (index == 1)
+                        {
+                            node.next = head;
+                            head = node;
+                            break;
+                        }
+                        //for loop is run according to index, to get previous and next nodes to insert the values
+                        else
+                        { 
+                            for (int i = 1; i < index; i++)
+                            {
+                                previous = tempNode;
+                                tempNode = tempNode.next;
+                            }
+                            node.next = tempNode;
+                            previous.next = node;
+                            break;
+                        }
+                    }
+                   //address is assigned again to temp to iterate over and find out for other nodes
+                    temp = temp.next;
+                }
+                //finds out total no of elements in the list
+                int totalInList=1;
+                Node countNode = head;
+                //count node remains at last node
+                while(countNode.next!=null)
+                {
+                    totalInList++;
+                    countNode = countNode.next;
+                }
+                //if total in list is equal to counter defined before, it means, all the values are smaller than data
+                //hence data will be added at last in list
+                //as countnode occupied last node, it's address is assigned the node.
+                if(index==totalInList)
+                {
+                    countNode.next = node;
+                }
+
+
             }
             Console.WriteLine("Element inserted in LinkedList:\t{0}", node.data);
         }
-        /// <summary>
-        /// finds out the last node to enter new node address in next of last node.
-        /// </summary>
-        /// <param name="temp"></param>
-        /// <returns></returns>
-        public Node GetLastNode(Node temp)
-        {
-            //if address in the temp node is not null, loop continues
-            while(temp.next!=null)
-            {
-                //used as iterator
-                //address of node is passed to same node to point to next node
-                temp = temp.next;
-            }
-            //when temp.next ==null, means last element is reached, temp is returned
-            return temp;
-        }
+
         /// <summary>
         /// displays linkedlist
         /// </summary>
@@ -77,11 +109,30 @@ namespace LinkedListDataStructure
                 temp = temp.next;
             }
         }
+
+        /// <summary>
+        /// finds out the last node to enter new node address in next of last node.
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
+        public Node GetLastNodeInLinkedList(Node temp)
+        {
+            //if address in the temp node is not null, loop continues
+            while (temp.next != null)
+            {
+                //used as iterator
+                //address of node is passed to same node to point to next node
+                temp = temp.next;
+            }
+            //when temp.next ==null, means last element is reached, temp is returned
+            return temp;
+        }
+
         /// <summary>
         /// Data is inserted at left side of head
         /// </summary>
         /// <param name="data"></param>
-        public void DataAtFront(int data)
+        public void DataAtFrontInLinkedList(int data)
         {
             //object is created for adding data in node class
             Node node = new Node(data);
@@ -92,7 +143,8 @@ namespace LinkedListDataStructure
             Console.WriteLine("Element inserted in LinkedList:\t{0}", node.data);
 
         }
-        public void AppendingData(int data)
+
+        public void AppendingDataInLinkedList(int data)
         {
             //Creating a object of node and adding data in node
             Node node = new Node(data);
@@ -110,17 +162,18 @@ namespace LinkedListDataStructure
             else
             {
                 //get last node method is called to find out last node
-                Node lastNode = GetLastNode(temp);
+                Node lastNode = GetLastNodeInLinkedList(temp);
                 lastNode.next = node;
             }
             Console.WriteLine("Element inserted in LinkedList:\t{0}", node.data);
         }
+
         /// <summary>
         /// Inserting data in linked list
         /// </summary>
         /// <param name="position"></param>
         /// <param name="data"></param>
-        public void InsertingData(int position, int data)
+        public void InsertingDataInLinkedList(int position, int data)
         {
             //if position is less than 1, then linkedlist is empty
             if(position <1)
@@ -154,7 +207,7 @@ namespace LinkedListDataStructure
         /// <summary>
         /// deleting element from the linkedlist
         /// </summary>
-        public void DeleteFirstElement()
+        public void DeleteFirstElementInLinkedList()
         {
             //temp contains 1st node
             Node temp = head;
@@ -168,7 +221,7 @@ namespace LinkedListDataStructure
         /// <summary>
         /// deleting last element from the list
         /// </summary>
-        public void DeleteLastElement()
+        public void DeleteLastElementInLinkedList()
         {
             Node temp = head;
             //finds the positon of the 2nd last element, as after that, next and next will give address as null
@@ -187,7 +240,7 @@ namespace LinkedListDataStructure
         /// </summary>
         /// <param name="searchdata"></param>
         /// <returns></returns>
-        public int SearchLinkedList(int searchdata)
+        public int SearchingList(int searchdata)
         {
             //index to find out position
             int index = 0;
@@ -219,12 +272,12 @@ namespace LinkedListDataStructure
         /// </summary>
         /// <param name="data"></param>
         /// <param name="searchData"></param>
-        public void InsertingElementWithData(int data, int searchData)
+        public void InsertingElementWithDataInLinkedList(int data, int searchData)
         {
             Node node = new Node(data);
-            Console.WriteLine("\ninserting element after the given data\n");
+            Console.WriteLine("\ninserting element after the given data");
             //finds the position of the given data
-            int positionForGivenData = SearchLinkedList(searchData);
+            int positionForGivenData = SearchingList(searchData);
             if(positionForGivenData==0)
             {
 
@@ -248,7 +301,7 @@ namespace LinkedListDataStructure
                 }
                 previous.next = node;
                 node.next = temp;
-                Console.WriteLine("\nElement inserted in list:\t{0}", node.data);
+                Console.WriteLine("Element inserted in list:\t{0}", node.data);
             }
         }
         /// <summary>
@@ -258,7 +311,7 @@ namespace LinkedListDataStructure
         public void DeleteSpecificElementFromList(int data)
         {
             //finds the position of the given data
-            int positionForGivenData = SearchLinkedList(data);
+            int positionForGivenData = SearchingList(data);
             Node temp = head;
             if (positionForGivenData == 0)
             {
@@ -280,7 +333,7 @@ namespace LinkedListDataStructure
                     previous = temp;
                     temp = temp.next;
                 }
-                Console.WriteLine("Deleting Specific element from the list:\t{0}",temp.data);
+                Console.WriteLine("\nDeleting Specific element from the list:\t{0}",temp.data);
                 //saving the address of next node(after the one getting deleted) in the previous node(to the one which is getting deleted)
                 //hence abandoning the specific node
                 previous.next = temp.next;
