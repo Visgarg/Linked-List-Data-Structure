@@ -181,27 +181,77 @@ namespace LinkedListDataStructure
             //address in the temp node(2nd last element) is set to null, hence last node is abandoned.
             temp.next = null; 
 
-        }
-        public bool SearchLinkedList(int searchdata)
+        }/// <summary>
+        /// Searching the positon of node element in linked list
+        /// </summary>
+        /// <param name="searchdata"></param>
+        /// <returns></returns>
+        public int SearchLinkedList(int searchdata)
         {
+            //index to find out position
             int index = 0;
+            //1st node is assigned to temmp
             Node temp = head;
+            //when head is null, empty list is displayed
             if(head==null)
             {
                 Console.WriteLine("Empty Linked List");
-                return false;
+                return 0;
             }
-            while(temp.next!=null)
+            //loop is run, until last elementis reached
+            while(temp!=null)
             {
                 index += 1;
+                //matches the data in the node with the given data.
                 if(temp.data== searchdata)
                 {
                     Console.WriteLine($"{searchdata} is present in the list at {index} position.");
-                    return true;
+                    //returns the index  where the node data is present.
+                    return index;
                 }
+                //moving the pointer of the node to next node.
                 temp = temp.next;
             }
-            return false;
+            return 0;
+        }
+        /// <summary>
+        /// inserts the element in the linked list after given data position
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="searchData"></param>
+        public void InsertingElementWithData(int data, int searchData)
+        {
+            Node node = new Node(data);
+            Console.WriteLine("\ninserting element after the given data\n");
+            //finds the position of the given data
+            int positionForGivenData = SearchLinkedList(searchData);
+            if(positionForGivenData==0)
+            {
+
+                Console.WriteLine("Given value do not exist in the linkedlist:\t{0}",searchData);
+            }
+            else if (positionForGivenData == 1)
+            {
+                node.next = head;
+                head = node;
+                Console.WriteLine("\nElement inserted in list:\t{0}", node.data);
+            }
+            //fills the data at next position in the same way as inserting element at any position method.
+            else
+            {
+                Node temp = head;
+                Node previous = null; 
+                for(int i=1;i<=positionForGivenData;i++)
+                {
+                    previous = temp;
+                    temp = temp.next;
+                }
+                previous.next = node;
+                node.next = temp;
+                Console.WriteLine("\nElement inserted in list:\t{0}", node.data);
+            }
+
+
         }
     }
 }

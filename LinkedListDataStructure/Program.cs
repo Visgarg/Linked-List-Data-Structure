@@ -31,7 +31,10 @@ namespace LinkedListDataStructure
             //linkedList.DisplayLinkedList();
             //searching data in the list
             linkedList.SearchLinkedList(56);
-            linkedList.SearchLinkedList(70);
+            linkedList.SearchLinkedList(45);
+            //inserting element in list using data
+            linkedList.InsertingElementWithData(16, 45);
+            linkedList.DisplayLinkedList();
 
         }
     }
