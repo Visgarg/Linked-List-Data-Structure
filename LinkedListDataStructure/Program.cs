@@ -20,6 +20,9 @@ namespace LinkedListDataStructure
             linkedList.DataAtFront(56);
             //displaying linkedlist
             linkedList.DisplayLinkedList();
+            //inserting element in linkedlist
+            linkedList.InsertingData(4, 45);
+            linkedList.DisplayLinkedList();
 
         }
     }

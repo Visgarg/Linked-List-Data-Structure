@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -111,6 +112,42 @@ namespace LinkedListDataStructure
                 lastNode.next = node;
             }
             Console.WriteLine("Element inserted in LinkedList:\t{0}", node.data);
+        }
+        /// <summary>
+        /// Inserting data in linked list
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="data"></param>
+        public void InsertingData(int position, int data)
+        {
+            //if position is less than 1, then linkedlist is empty
+            if(position <1)
+            {
+                Console.WriteLine("Invalid Position");
+            }
+            //creating object
+            Node node = new Node(data);
+            //if position is 1, adding directly using head
+            if (position == 1)
+            {
+                node.next = head;
+                head = node;
+            }
+            //else creating object previous to hold the node of previous position, after new node is added. 
+            //temp will be object after the node, after creation of node in list.
+            else
+            {
+                Node temp = head;
+                Node previous = null;
+                for (int i = 1; i < position; i++)
+                {
+                    previous = temp;
+                    temp = temp.next;
+                }
+                previous.next = node;
+                node.next = temp;
+            }
+            Console.WriteLine("Element inserted in list:\t{0}", node.data);
         }
     }
 }
