@@ -24,11 +24,14 @@ namespace LinkedListDataStructure
             linkedList.InsertingData(4, 45);
             linkedList.DisplayLinkedList();
             //deleting 1st element from list
-            linkedList.DeleteFirstElement();
-            linkedList.DisplayLinkedList();
+            //linkedList.DeleteFirstElement();
+            //linkedList.DisplayLinkedList();
             //deleting last element
-            linkedList.DeleteLastElement();
-            linkedList.DisplayLinkedList();
+            //linkedList.DeleteLastElement();
+            //linkedList.DisplayLinkedList();
+            //searching data in the list
+            linkedList.SearchLinkedList(56);
+            linkedList.SearchLinkedList(70);
 
         }
     }

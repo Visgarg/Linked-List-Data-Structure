@@ -182,5 +182,26 @@ namespace LinkedListDataStructure
             temp.next = null; 
 
         }
+        public bool SearchLinkedList(int searchdata)
+        {
+            int index = 0;
+            Node temp = head;
+            if(head==null)
+            {
+                Console.WriteLine("Empty Linked List");
+                return false;
+            }
+            while(temp.next!=null)
+            {
+                index += 1;
+                if(temp.data== searchdata)
+                {
+                    Console.WriteLine($"{searchdata} is present in the list at {index} position.");
+                    return true;
+                }
+                temp = temp.next;
+            }
+            return false;
+        }
     }
 }
