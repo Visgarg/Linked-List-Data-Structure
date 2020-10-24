@@ -1,12 +1,11 @@
-﻿using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
 namespace LinkedListDataStructure
 {
-    class LinkedList
+    public class LinkedList
     {
         //Creating a node head, which will be pointing to the first element in linkedlist
         //head is filled with pointer of first value, when head is null.
@@ -282,12 +281,6 @@ namespace LinkedListDataStructure
             {
 
                 Console.WriteLine("Given value do not exist in the linkedlist:\t{0}",searchData);
-            }
-            else if (positionForGivenData == 1)
-            {
-                node.next = head;
-                head = node;
-                Console.WriteLine("\nElement inserted in list:\t{0}", node.data);
             }
             //fills the data at next position in the same way as inserting element at any position method.
             else
