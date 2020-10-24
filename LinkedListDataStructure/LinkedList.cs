@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace LinkedListDataStructure
@@ -205,7 +206,6 @@ namespace LinkedListDataStructure
                 //matches the data in the node with the given data.
                 if(temp.data== searchdata)
                 {
-                    Console.WriteLine($"{searchdata} is present in the list at {index} position.");
                     //returns the index  where the node data is present.
                     return index;
                 }
@@ -250,8 +250,41 @@ namespace LinkedListDataStructure
                 node.next = temp;
                 Console.WriteLine("\nElement inserted in list:\t{0}", node.data);
             }
+        }
+        /// <summary>
+        /// deleting specific element from the linked list
+        /// </summary>
+        /// <param name="data"></param>
+        public void DeleteSpecificElementFromList(int data)
+        {
+            //finds the position of the given data
+            int positionForGivenData = SearchLinkedList(data);
+            Node temp = head;
+            if (positionForGivenData == 0)
+            {
 
-
+                Console.WriteLine("Given value do not exist in the linkedlist:\t{0}", data);
+            }
+            //deleting 1st element
+            else if (positionForGivenData == 1)
+            {
+                head = temp.next;
+            }
+            else
+            {
+                //defining node to store the data of current node,when the temp node will  be addressed to next node whose address is saved
+                Node previous = null;
+                //finding out the element position, after which node is to be deleted, so that address can be changed
+                for(int i=1;i<positionForGivenData;i++)
+                {
+                    previous = temp;
+                    temp = temp.next;
+                }
+                Console.WriteLine("Deleting Specific element from the list:\t{0}",temp.data);
+                //saving the address of next node(after the one getting deleted) in the previous node(to the one which is getting deleted)
+                //hence abandoning the specific node
+                previous.next = temp.next;
+            }
         }
     }
 }

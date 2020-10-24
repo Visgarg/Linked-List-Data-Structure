@@ -30,10 +30,15 @@ namespace LinkedListDataStructure
             //linkedList.DeleteLastElement();
             //linkedList.DisplayLinkedList();
             //searching data in the list
-            linkedList.SearchLinkedList(56);
-            linkedList.SearchLinkedList(45);
+            //linkedList.SearchLinkedList(56);
+            int searchdata = 45;
+            int index= linkedList.SearchLinkedList(searchdata);
+            Console.WriteLine($"{searchdata} is present in the list at {index} position.");
             //inserting element in list using data
             linkedList.InsertingElementWithData(16, 45);
+            linkedList.DisplayLinkedList();
+            //deleting specific element from the list
+            linkedList.DeleteSpecificElementFromList(30);
             linkedList.DisplayLinkedList();
 
         }
