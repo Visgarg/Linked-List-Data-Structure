@@ -63,6 +63,7 @@ namespace LinkedListDataStructure
             //temp becomes first node of linkedlist
             Node temp = head;
             //if temp is null, then linkedlist is null
+            Console.WriteLine("LINKEDLIST");
             if(temp==null)
             {
                 Console.WriteLine("Empty LinkedList");
@@ -148,6 +149,20 @@ namespace LinkedListDataStructure
                 node.next = temp;
             }
             Console.WriteLine("Element inserted in list:\t{0}", node.data);
+        }
+        /// <summary>
+        /// deleting element from the linkedlist
+        /// </summary>
+        public void DeleteFirstElement()
+        {
+            //temp contains 1st node
+            Node temp = head;
+            Console.WriteLine("Element to be removed :\t{0}", temp.data);
+            //address of 2nd node is passed to head
+            //head will point to 2nd node directly
+            //node 1 will automatically be abandoned.
+            head = temp.next;
+
         }
     }
 }

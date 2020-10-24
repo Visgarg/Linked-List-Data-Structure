@@ -23,6 +23,9 @@ namespace LinkedListDataStructure
             //inserting element in linkedlist
             linkedList.InsertingData(4, 45);
             linkedList.DisplayLinkedList();
+            //deleting 1st element from list
+            linkedList.DeleteFirstElement();
+            linkedList.DisplayLinkedList();
 
         }
     }
