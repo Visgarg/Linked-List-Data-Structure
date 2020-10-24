@@ -89,5 +89,28 @@ namespace LinkedListDataStructure
             Console.WriteLine("Element inserted in LinkedList:\t{0}", node.data);
 
         }
+        public void AppendingData(int data)
+        {
+            //Creating a object of node and adding data in node
+            Node node = new Node(data);
+            //passing the address of 1st position in linkedlist(stored in head) to temp
+            //in starting, head will be null, so temp will be assigned with null
+            //but after 1st element is inserted. head will point to 1st element to find out next vacant pointer.
+            Node temp = head;
+            //fills the first position in linkedlist, when head points to nothing.
+            if (head == null)
+            {
+                head = node;
+            }
+            //when heads point to first element, node is find out, whose address is empty
+            //so that, address of new node can be filled in next of last ode
+            else
+            {
+                //get last node method is called to find out last node
+                Node lastNode = GetLastNode(temp);
+                lastNode.next = node;
+            }
+            Console.WriteLine("Element inserted in LinkedList:\t{0}", node.data);
+        }
     }
 }
